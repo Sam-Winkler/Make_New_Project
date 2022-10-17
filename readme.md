@@ -1,4 +1,4 @@
-# Make New Project
+## Make New Project
 
 A simple app that creates a new directory structure for creative projects -- aimed at visual effects and motion design.
 
