@@ -4,15 +4,15 @@ from tkinter import simpledialog
 root = tk.Tk()
 root.withdraw()
 
-newProject = simpledialog.askstring(title=" ", prompt="New Project Name:")
-newProject = newProject.replace(" ", "_")
-newProject = newProject.upper()
+new_project = simpledialog.askstring(title=" ", prompt="New Project Name:")
+new_project = new_project.replace(" ", "_")
+new_project = new_project.upper()
 
 path = os.path.dirname(__file__)
-prjDir = path + "\\" + newProject
-os.mkdir(prjDir)
+prj_dir = path + "\\" + new_project
+os.mkdir(prj_dir)
 
-mainDirectories = [
+main_directories = [
     "01_REFERENCE",
     "02_FOOTAGE",
     "03_ELEMENTS",
@@ -20,7 +20,7 @@ mainDirectories = [
     "05_OUTPUT",
 ]
 
-subDirectories = [
+sub_directories = [
     ["01_INTERNAL", "02_FROM_CLIENT", "03_TO_CLIENT"],
     ["01_PLATES", "02_PRERENDERS"],
     [
@@ -37,16 +37,16 @@ subDirectories = [
     ["01_REVIEW", "02_POSTING", "03_DELIVERY"],
 ]
 
-for x in range(len(subDirectories)):
-    os.mkdir(os.path.join(prjDir, mainDirectories[x]))
-    for y in range(len(subDirectories[x])):
-        os.mkdir(os.path.join(prjDir, mainDirectories[x], subDirectories[x][y]))
+for x in range(len(sub_directories)):
+    os.mkdir(os.path.join(prj_dir, main_directories[x]))
+    for y in range(len(sub_directories[x])):
+        os.mkdir(os.path.join(prj_dir, main_directories[x], sub_directories[x][y]))
 
-for z in range(len(subDirectories[4])):
-    fileDir = prjDir + "\\05_OUTPUT\\" + subDirectories[4][z]
-    fileName = fileDir + "\\" + "Make_Date_Folder.py"
+for z in range(len(sub_directories[4])):
+    file_dir = prj_dir + "\\05_OUTPUT\\" + sub_directories[4][z]
+    file_name = file_dir + "\\" + "Make_Date_Folder.py"
 
-    f = open(fileName, "a")
+    f = open(file_name, "a")
     f.write(
         "import os \n"
         + "from datetime import date \n"
